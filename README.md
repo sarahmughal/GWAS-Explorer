@@ -1,4 +1,4 @@
-# 🧬 GWAS Explorer
+# 🧬 GWAS Explorer - Interactive Visualization of GWAS Summary Statistics
 
 Interactive Streamlit app for exploring GWAS summary statistics.
 Built for Epi Final Project — demo data simulates FinnGen T2D results.
