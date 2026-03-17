@@ -8,7 +8,7 @@ import io
 
 st.set_page_config(page_title="GWAS Explorer", page_icon="🧬", layout="wide")
 
-# custom styling using CSS
+# custom styling — had to learn some CSS for this
 st.markdown("""
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@300;400;600&display=swap');
@@ -150,7 +150,7 @@ def manhattan_plot(df, pval_thresh):
         (sig,         "#f85149", 5,   f"Significant (P<{pval_thresh:.0e})",  True),
     ]:
         s = df[mask]
-        c = color[s.index] if hasattr(color, "__getitem__") else color
+        c = color.loc[s.index].tolist() if isinstance(color, pd.Series) else color
         fig.add_trace(go.Scattergl(
             x=s["ABS_POS"], y=s["-log10P"], mode="markers",
             marker=dict(color=c, size=size, opacity=0.7),
